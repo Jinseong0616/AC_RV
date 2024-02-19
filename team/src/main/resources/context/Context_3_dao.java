@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import dao.BusinessDAO;
 import dao.MemberDAO;
 import dao.ReservationDAO;
-import dao.ReviewDAO;
 import dao.RoomDAO;
 import dao.SearchDAO;
 
@@ -40,11 +39,6 @@ public class Context_3_dao {
 	@Bean
 	public SearchDAO searchDAO(SqlSession sqlSession) {
 		return new SearchDAO(sqlSession);
-	}
-	
-	@Bean
-	public ReviewDAO reviewDAO(SqlSession sqlSession) {
-		return new ReviewDAO(sqlSession);
 	}
 	
 	
