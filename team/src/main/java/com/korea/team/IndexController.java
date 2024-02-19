@@ -1,5 +1,7 @@
 package com.korea.team;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import dao.BusinessDAO;
+import dto.BusinessDTO;
 import lombok.RequiredArgsConstructor;
 import util.MyCommon;
 
@@ -50,6 +54,14 @@ public class IndexController {
 		}
 	
 	
-	
+	//카테고리별로 보기
+	@RequestMapping("category")
+	public String view_accomoList(Model model, @RequestParam(value = "bu_id", required = true)int bu_id) {
+		
+		List<BusinessDTO> list = business_dao.selectList(bu_id);
+		model.addAttribute("list",list);
+		
+		return MyCommon.VIEW_PATH+"main/category.jsp?bu_id=" + bu_id;
+	}
 	
 }

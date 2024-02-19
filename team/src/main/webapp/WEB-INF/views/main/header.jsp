@@ -14,6 +14,14 @@
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css" />
 <link rel="stylesheet" href="resources/css/header.css" />
+
+<!-- 사업자 입시 로그인 -->
+<script type="text/javascript">
+	function bu_login(){
+		location.href="businessPage?bu_email=hhh@naver.com"
+	}
+</script>
+	
 </head>
 <body>
 
@@ -28,6 +36,8 @@
 				</div>
 				<div class="info col d-flex justify-content-end">
 					<ul class="gnb d-flex align-items-center">
+						<!--  -->
+						<li><input type="button" name="bu_email" value="사업자 임시 로그인" onclick="bu_login()"> </li>
 						<li><a href="">지도검색</a></li>
 						<li><a href="">예약내역</a></li>
 						<c:choose>
@@ -36,7 +46,7 @@
 							</c:when>
 							<c:otherwise>
 								<input type="button" value="로그아웃"
-									onclick="location.href='logout'">
+									onclick="location.href='logout'"> 
 							</c:otherwise>
 						</c:choose>
 					</ul>
