@@ -17,7 +17,6 @@ public class BusinessDAO {
 		return sqlSession.selectList("b.category",bu_id);
 	}
 	
-	
 	public BusinessDTO selectOne(String bu_email) {
 		return sqlSession.selectOne("b.loginCheck", bu_email);
 	}
@@ -25,7 +24,5 @@ public class BusinessDAO {
 	public int insert(BusinessDTO dto) {
 		return sqlSession.insert("b.insert", dto);
 	}
-	
-	
 	
 }

@@ -110,7 +110,7 @@
 	</form>
 	<div id="picturebox" align="right">
 		<c:forEach begin="0" end="${dto.picture_count}" step="1" varStatus="status">
-			<img name="${dto.ro_name}_${status.current}"src="resources/room_img/${dto.ro_name}/${dto.ro_name}_${status.current}.jpeg">
+			<img name="${dto.ro_name}_${status.current}"src="resources/${dto.bu_email}/${dto.ro_name}/${dto.ro_name}_${status.current}.jpeg">
 		</c:forEach>
 	</div>
 </body>
