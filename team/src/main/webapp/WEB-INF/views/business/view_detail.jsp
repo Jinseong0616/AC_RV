@@ -50,7 +50,6 @@
 	<form action="modify_form" action="post">
 	<input type="hidden" name="ro_num" value="${dto.ro_num}">
 	<input type="hidden" id="ro_name" value="${dto.ro_name}">
-	<input type="hidden" id="bu_email" value="${dto.bu_email}">
 	<input type="hidden" id="picture_count" value="${dto.picture_count}">
 	<div align="center" id="detailBox">
 		<h1 align="center">${dto.ro_name}</h1>
@@ -59,7 +58,7 @@
 				<img alt="이전" src="resources/img/left_btn.png">
 			</a>
 			
-			<img id="ro_img" src="resources/${dto.bu_email}/${dto.ro_name}/${dto.ro_picture}">
+			<img id="ro_img" src="resources/room_img/${dto.ro_name}/${dto.ro_picture}">
 			
 			<a href="#" onclick="next();">
 				<img alt="다음" src="resources/img/right_btn.png">
@@ -80,9 +79,7 @@
 	max = max.value;
 	var ro_name = document.getElementById("ro_name");
 	ro_name = ro_name.value;
-	var bu_email = document.getElementById("bu_email");
-	bu_email = bu_email.value;
-	var path="resources/"+bu_email+'/'+ro_name+"/";
+	var path="resources/room_img/"+ro_name+"/";
 	
 	
 	function prev() {

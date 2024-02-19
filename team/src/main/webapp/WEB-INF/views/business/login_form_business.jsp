@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link rel="stylesheet" href="resources/css/header.css">
 <link rel="stylesheet" href="resources/css/login_form_user.css">
 </head>
@@ -25,14 +26,14 @@
 							<p>
 								<label for="email">이메일</label>
 							</p>
-							<input type="text" name="bu_email" placeholder="korea@yescompany.co.kr" />
+							<input type="text" name="m_email" placeholder="korea@yescompany.co.kr" />
 							<p class="error message"></p>
 						</div>
 						<div class="password-area">
 							<p>
 								<label for="pwd">비밀번호</label>
 							</p>
-							<input type="password" name="bu_password" placeholder="비밀번호를 입력하세요." />
+							<input type="password" name="m_pwd" placeholder="비밀번호를 입력하세요." />
 							<p class="error message"></p>
 						</div>
 					</div>
@@ -41,7 +42,7 @@
 					</div>
 					<div class="loginBtn-area">
 						<input type="button" class="loginBtn" value="로그인" onclick="send(this.form)">
-						<input type="button" value="회원가입" onclick="location.href='business_insert_form'">
+						<input type="button" value="회원가입" onclick="location.href='member_insert_form'">
 					</div>
 				</div>
 			</div>
@@ -52,20 +53,21 @@
 
 	<script type="text/javascript">
 		function send(f) {
-			let bu_email = f.bu_email.value.trim();
-			let bu_password = f.bu_password.value.trim();
+			let m_email = f.m_email.value.trim();
+			let m_pwd = f.m_pwd.value.trim();
 
-			if (bu_email == '') {
+			if (m_email == '') {
 				alert("이메일을 입력해주세요")
 				return;
 			}
-			if (bu_password == '') {
+			if (m_pwd == '') {
 				alert("비밀번호를 입력해주세요")
 				return;
 			}
 
-			let url = "bu_login";
-			let param = "bu_email=" + bu_email + "&bu_password=" + encodeURIComponent(bu_password);
+			let url = "login";
+			let param = "m_email=" + m_email + "&m_pwd="
+					+ encodeURIComponent(m_pwd);
 
 			sendRequest(url, param, myCheck, "post");
 		}
@@ -75,9 +77,9 @@
 				let data = xhr.responseText;
 				let json = (new Function('return' + data))();
 
-				if (json[0].param == 'no_bu_email') {
+				if (json[0].param == 'no_m_email') {
 					alert('이메일이 존재하지 않습니다.')
-				} else if (json[0].param == 'no_bu_password') {
+				} else if (json[0].param == 'no_m_pwd') {
 					alert('비밀번호가 올바르지 않습니다.')
 				} else {
 					alert('로그인 성공')

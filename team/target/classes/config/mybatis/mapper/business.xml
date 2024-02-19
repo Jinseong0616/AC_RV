@@ -5,27 +5,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="b">
 	
 	<select id="category" parameterType="int" resultType="business">
-		select * from business where bu_id = #{bu_id}
+		SELECT DISTINCT B.*, MIN_PRICE
+		FROM BUSINESS B
+		JOIN BUSINESS_INFO_VIEW T ON B.BU_EMAIL = T.BU_EMAIL
+		WHERE B.BU_ID= #{bu_id}
 	</select>
-	
-	<select id="bu_loginCheck" parameterType="String" resultType="business">
-		select * from business where bu_email = #{bu_email}
+
+	<select id="loginCheck" parameterType="String"
+		resultType="business">
+		select * from member where bu_email = #{bu_email}
 	</select>
-	
+
 	<insert id="insert" parameterType="business">
-		insert into business values(
-		#{bu_email},
-		#{bu_password},
-		#{bu_tel},
+		insert into member
+		values(#{bu_email},
 		#{bu_name},
-		#{bu_addr},
-		#{bu_title},
-		0,
-		#{bu_picture},
-		#{bu_id},
-		0
+		#{bu_pwd},
+		#{bu_tel}
 		)
 	</insert>
+
 
 </mapper>
 

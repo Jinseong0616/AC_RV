@@ -39,7 +39,6 @@
 	<jsp:include page="/WEB-INF/views/business/businessTopView.jsp"></jsp:include>
 	
 	<div id="b_checkin" style="display: inline-block;" align="center">
-	<input type="hidden" name="bu_email" value="${bu_email}">
 	<h1>입실 전</h1>
 	<table border="1" style="display: inline-block;" >
 		  <tr>

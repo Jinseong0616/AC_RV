@@ -13,8 +13,8 @@ public class ReservationDAO {
 	
 	final SqlSession sqlSession;	
 	
-	public List<ReservationDTO> selectList(String bu_email){
-		return sqlSession.selectList("rv.select",bu_email);
+	public List<ReservationDTO> selectList(){
+		return sqlSession.selectList("rv.select");
 	}
 	
 	public List<ReservationDTO> search(HashMap<String, String> map){
